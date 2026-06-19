@@ -247,6 +247,12 @@ WalkwithShubh helps travelers discover India's most iconic destinations.
 Explore culture, history, spirituality and adventure all in one place.
 </p>
 
+<div class="card">
+<img src="https://1drv.ms/i/c/83fbba8ec6494db8/IQBZhkhJwR03RIMJYbtzhbfNAZ9W1sK4WA4pzQlgcm1IJLQ?e=I0eT10">
+<h3>Shubham Gupta</h3>
+<p>Founder</p>
+</div>
+
 </section>
 
 <section class="contact">
