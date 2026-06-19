@@ -248,7 +248,7 @@ Explore culture, history, spirituality and adventure all in one place.
 </p>
 
 <div class="card">
-<img src="/static/shubham.jpg" alt="Shubham" width="250">
+<img src="/static/myphoto.jpg.jpg">
 <h3>Shubham Gupta</h3>
 <p>Founder</p>
 </div>
