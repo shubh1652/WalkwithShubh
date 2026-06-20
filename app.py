@@ -318,46 +318,55 @@ def place(name):
     places = {
         "tajmahal": {
             "title": "Taj Mahal",
+            "image": "https://images.pexels.com/photos/28762052/pexels-photo-28762052/free-photo-of-taj-mahal-with-tourists-and-clear-sky.jpeg?auto=compress&cs=tinysrgb&w=1600",
             "info": "The Taj Mahal is one of the Seven Wonders of the World. Located in Agra, it was built by Mughal Emperor Shah Jahan."
         },
 
         "jaipur": {
             "title": "Jaipur",
+            "image": "https://media.istockphoto.com/id/1744632361/photo/city-palace-jaipur-india.webp",
             "info": "Jaipur is known as the Pink City and is famous for Hawa Mahal, Amer Fort and rich Rajasthani culture."
         },
 
         "varanasi": {
             "title": "Varanasi",
+            "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/df26146d-a16d-4d75-8172-aa1d9c984001/d6omi5n-98f44af3-fc69-49c3-968d-065d355f565e.jpg",
             "info": "Varanasi is one of the world's oldest cities and a major spiritual center on the banks of the Ganges."
         },
 
         "goa": {
             "title": "Goa",
+             "image": "https://wildlifezones.com/wp-content/uploads/2020/10/A-Beautiful-Beach-in-Goa.jpg",
             "info": "Goa is famous for beaches, nightlife, Portuguese architecture and seafood."
         },
 
         "kerala": {
             "title": "Kerala",
+            "image": "https://www.affordableluxurytravel.co.uk/blog/wp-content/uploads/2023/03/Kerala-Backwaters-2.jpg",
             "info": "Kerala is known for its backwaters, tea plantations, hill stations and beautiful scenery."
         },
 
         "ladakh": {
             "title": "Leh Ladakh",
+            "image": "https://wanderon-images.gumlet.io/blogs/new/2023/12/leh-ladakh.jpg",
             "info": "Ladakh is famous for mountains, monasteries, Pangong Lake and adventure tourism."
         },
 
          "mumbai": {
             "title": "Mumbai",
+             "image": "https://cdn.guidetour.in/wp-content/uploads/2018/09/Architectural-Marvel-Gateway-of-India.jpg.webp",
             "info": "Mumbai is famous for skycrapers and as heart of bollywood."
         },
 
         "karnataka": {
             "title": "Karnataka",
+            "image": "https://www.fabhotels.com/blog/wp-content/uploads/2019/05/Mysore-palace_600.jpg",
             "info": "Karnataka is famous for Mysore silk, sandalwood and cuisine."
         },
 
          "delhi": {
             "title": "Delhi",
+             "image": "https://imgmedia.lbb.in/media/2019/09/5d6e3d3631019eb679a4639d_1567505718634.jpg",
             "info": "Delhi is famous for its historical monuments, religious sites, diverse street food, lively markets."
         }
     }
