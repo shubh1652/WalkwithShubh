@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WalkwithShubh</title>
 
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">WalkwithShubh ✈</div>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button>Plan a Trip</button>
+</nav>
+
+<section class="hero">
+
+    <div class="overlay">
+
+        <h4>EXPLORE INCREDIBLE INDIA</h4>
+
+        <h1>
+            Travel. Explore.<br>
+            Experience India.
+        </h1>
+
+        <p>
+            Discover India's most iconic destinations.
+        </p>
+
+        <div class="buttons">
+            <button>Explore Destinations</button>
+            <button class="secondary">Learn More</button>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="destinations">
+
+<h2>Explore India's Best Places</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="/static/tajmahal.jpg">
+<h3>Taj Mahal</h3>
+<p>Agra, Uttar Pradesh</p>
+</div>
+
+<div class="card">
+<img src="/static/hawa_mahal.jpg">
+<h3>Hawa Mahal</h3>
+<p>Jaipur, Rajasthan</p>
+</div>
+
+<div class="card">
+<img src="/static/kashi.jpg">
+<h3>Kashi Vishwanath Temple</h3>
+<p>Varanasi</p>
+</div>
+
+<div class="card">
+<img src="/static/goa.jpg">
+<h3>Goa Beach</h3>
+<p>Goa</p>
+</div>
+
+<div class="card">
+<img src="/static/kerala.jpg">
+<h3>Kerala Backwaters</h3>
+<p>Kerala</p>
+</div>
+
+<div class="card">
+<img src="/static/golden_temple.jpg">
+<h3>Golden Temple</h3>
+<p>Amritsar</p>
+</div>
+
+<div class="card">
+<img src="/static/gateway.jpg">
+<h3>Gateway of India</h3>
+<p>Mumbai</p>
+</div>
+
+<div class="card">
+<img src="/static/india_gate.jpg">
+<h3>India Gate</h3>
+<p>Delhi</p>
+</div>
+
+<div class="card">
+<img src="/static/ladakh.jpg">
+<h3>Leh Ladakh</h3>
+<p>Ladakh</p>
+</div>
+
+<div class="card">
+<img src="/static/mysore.jpg">
+<h3>Mysore Palace</h3>
+<p>Karnataka</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<div class="about-container">
+
+<img src="/static/myphoto.jpg" class="profile">
+
+<div>
+
+<h2>About WalkwithShubh</h2>
+
+<p>
+Hi, I'm Shubham Gupta, founder of WalkwithShubh.
+My goal is to help travelers explore India's most beautiful destinations.
+</p>
+
+<button>Know More About Me</button>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>WalkwithShubh</h3>
+
+<p>Made with ❤️ for travelers.</p>
+
+</footer>
+
+</body>
+</html>
