@@ -349,12 +349,12 @@ def place(name):
          "mumbai": {
             "title": "Mumbai",
             "info": "Mumbai is famous for skycrapers and as heart of bollywood."
-        }
+        },
 
         "karnataka": {
             "title": "Karnataka",
             "info": "Karnataka is famous for Mysore silk, sandalwood and cuisine."
-        }
+        },
 
          "delhi": {
             "title": "Delhi",
