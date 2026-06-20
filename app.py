@@ -4,72 +4,153 @@ app = Flask(__name__)
 
 html = """
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WalkwithShubh</title>
 
     <style>
-        body{
+
+        *{
             margin:0;
+            padding:0;
+            box-sizing:border-box;
             font-family:Arial, sans-serif;
-            background:#f4f4f4;
+        }
+
+        body{
+            background:#f5f5f5;
         }
 
         nav{
-            background:#1e3a8a;
+            background:#0d6efd;
             color:white;
-            padding:15px 40px;
+            padding:15px 50px;
             display:flex;
             justify-content:space-between;
             align-items:center;
         }
 
-        .logo{
+        nav h1{
             font-size:28px;
-            font-weight:bold;
         }
 
-        ul{
-            list-style:none;
+        nav ul{
             display:flex;
-            gap:20px;
+            list-style:none;
         }
 
-        ul li a{
+        nav ul li{
+            margin-left:20px;
+        }
+
+        nav ul li a{
             color:white;
             text-decoration:none;
         }
 
         .hero{
-            text-align:center;
-            padding:80px 20px;
-            background:url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1200') center/cover;
+            height:70vh;
+            background:url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da') center/cover;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
             color:white;
+            text-align:center;
         }
 
-        .hero h1{
+        .hero h2{
             font-size:50px;
+            margin-bottom:15px;
+        }
+
+        .hero p{
+            font-size:20px;
+            margin-bottom:20px;
+        }
+
+        .search-box{
+            padding:12px;
+            width:300px;
+            border:none;
+            border-radius:5px;
+        }
+
+        .section-title{
+            text-align:center;
+            margin:40px 0;
+            font-size:35px;
+        }
+
+        .places{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:25px;
+            padding:30px;
+        }
+
+        .card{
+            background:white;
+            border-radius:10px;
+            overflow:hidden;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .card img{
+            width:100%;
+            height:220px;
+            object-fit:cover;
+        }
+
+        .card h3{
+            padding:15px;
+        }
+
+        .card p{
+            padding:0 15px 15px;
         }
 
         .about{
-            padding:50px;
+            padding:60px;
             text-align:center;
             background:white;
         }
 
-        .about img{
-            width:220px;
-            border-radius:50%;
-            margin-top:20px;
+        .contact{
+            padding:60px;
+            text-align:center;
         }
+
+        .contact input,
+        .contact textarea{
+            width:60%;
+            padding:12px;
+            margin:10px;
+        }
+
+        .contact button{
+            background:#0d6efd;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            cursor:pointer;
+        }
+
+        footer{
+            background:#222;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
     </style>
+
 </head>
+
 <body>
 
 <nav>
-    <div class="logo">WalkwithShubh ✈</div>
+    <h1>WalkwithShubh</h1>
 
     <ul>
         <li><a href="#">Home</a></li>
@@ -80,9 +161,13 @@ html = """
 </nav>
 
 <section class="hero">
-    <h1>Explore Incredible India</h1>
-    <p>Discover India's most beautiful tourist destinations.</p>
+
+    <h2>Explore Incredible India</h2>
+
+    <p>Discover the most beautiful places in India</p>
+
     <input class="search-box" type="text" placeholder="Search destinations...">
+
 </section>
 
 <h2 class="section-title">Top Tourist Places</h2>
@@ -113,13 +198,13 @@ html = """
 <p>Famous Beaches & Nightlife</p>
 </div>
 
-div class="card">
+<div class="card">
 <img src="https://www.affordableluxurytravel.co.uk/blog/wp-content/uploads/2023/03/Kerala-Backwaters-2.jpg">
 <h3>Kerala</h3>
 <p>Beautiful Backwaters</p>
 </div>
 
-div class="card">
+<div class="card">
 <img src="https://wallpapers.com/images/hd/golden-temple-and-green-pool-yeah6u7p3v71u682.jpg">
 <h3>Golden Temple</h3>
 <p>Amritsar, Punjab</p>
@@ -149,19 +234,48 @@ div class="card">
 <p>Karnataka</p>
 </div>
 
-<section class="about">
-    <h2>About WalkwithShubh</h2>
-
-    <p>
-        WalkwithShubh helps travelers discover India's most iconic destinations.
-        Explore culture, history, spirituality and adventure all in one place.
-    </p>
-
-    <img src="/static/myphoto.jpg.jpg" alt="Shubham">
-
-    <h3>Shubham Gupta</h3>
-    <p>Founder</p>
 </section>
+
+<section class="about">
+
+<h2>About WalkwithShubh</h2>
+
+<br>
+
+<p>
+WalkwithShubh helps travelers discover India's most iconic destinations.
+Explore culture, history, spirituality and adventure all in one place.
+</p>
+
+<div class="card">
+<img src="">
+<h3>Shubham Gupta</h3>
+<p>Founder</p>
+</div>
+
+</section>
+
+<section class="contact">
+
+<h2>Contact Us</h2>
+
+<br>
+
+<input type="text" placeholder="Your Name"><br>
+
+<input type="email" placeholder="Your Email"><br>
+
+<textarea rows="5" placeholder="Message"></textarea><br>
+
+<button>Send Message</button>
+
+</section>
+
+<footer>
+
+<h3>© 2026 WalkwithShubh | Made by Shubham</h3>
+
+</footer>
 
 </body>
 </html>
@@ -173,3 +287,4 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True)
+    
