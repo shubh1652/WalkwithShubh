@@ -50,7 +50,7 @@ html = """
 
         .hero{
             height:70vh;
-            background:url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da') center/cover;
+            background:url('https://static.toiimg.com/photo/62657537.cms') center/cover;
             display:flex;
             flex-direction:column;
             justify-content:center;
