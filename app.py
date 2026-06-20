@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string
+from flask import Flask, render_template_string, request
 
 app = Flask(__name__)
 
@@ -255,54 +255,25 @@ Explore culture, history, spirituality and adventure all in one place.
 <p>Founder</p>
 </div>
 
+<section class="contact">
 
-def init_db():
-    conn = sqlite3.connect('contact.db')
-    cursor = conn.cursor()
+<h2>Contact Us</h2>
 
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS contacts (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-            email TEXT NOT NULL,
-            address TEXT NOT NULL,
-            message TEXT NOT NULL
-        )
-    ''')
+<br>
 
-    conn.commit()
-    conn.close()
+<form action="/contact" method="POST">
 
-init_db()
+<input type="text" name="name" placeholder="Your Name" required><br>
 
-@app.route('/')
-def home():
-    return render_template('contact.html')
+<input type="email" name="email" placeholder="Your Email" required><br>
 
-@app.route('/submit', methods=['POST'])
-def submit():
-    name = request.form['name']
-    email = request.form['email']
-    address = request.form['address']
-    message = request.form['message']
+<input type="text" name="address" placeholder="Your Address" required><br>
 
-    conn = sqlite3.connect('contact.db')
-    cursor = conn.cursor()
+<textarea name="message" rows="5" placeholder="Message" required></textarea><br>
 
-    cursor.execute(
-        "INSERT INTO contacts (name, email, address, message) VALUES (?, ?, ?, ?)",
-        (name, email, address, message)
-    )
+<button type="submit">Send Message</button>
 
-    conn.commit()
-    conn.close()
-
-    return redirect('/success')
-
-@app.route('/success')
-def success():
-    return "<h2>Thank you! Your message has been submitted successfully.</h2>"
-
+</form>
 
 </section>
 
@@ -319,6 +290,26 @@ def success():
 @app.route("/")
 def home():
     return render_template_string(html)
+
+
+@app.route("/contact", methods=["POST"])
+def contact():
+
+    name = request.form["name"]
+    email = request.form["email"]
+    address = request.form["address"]
+    message = request.form["message"]
+
+    print("Name:", name)
+    print("Email:", email)
+    print("Address:", address)
+    print("Message:", message)
+
+    return """
+    <h2>Thank You!</h2>
+    <p>Your message has been submitted successfully.</p>
+    <a href="/">Go Back</a>
+    """
 
 if __name__ == "__main__":
     app.run(debug=True)
