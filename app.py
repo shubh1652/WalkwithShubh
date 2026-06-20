@@ -344,7 +344,7 @@ def place(name):
         "ladakh": {
             "title": "Leh Ladakh",
             "info": "Ladakh is famous for mountains, monasteries, Pangong Lake and adventure tourism."
-        }
+        },
 
          "mumbai": {
             "title": "Mumbai",
