@@ -174,65 +174,86 @@ html = """
 
 <section class="places">
 
+<a href="/place/tajmahal" style="text-decoration:none;color:black;">
 <div class="card">
 <img src="https://images.pexels.com/photos/28762052/pexels-photo-28762052/free-photo-of-taj-mahal-with-tourists-and-clear-sky.jpeg?auto=compress&cs=tinysrgb&w=1600">
 <h3>Taj Mahal</h3>
 <p>Agra, Uttar Pradesh</p>
 </div>
+</a>
 
+<a href="/place/jaipur" style="text-decoration:none;color:black;">
 <div class="card">
 <img src="https://media.istockphoto.com/id/1744632361/photo/city-palace-jaipur-india.webp?a=1&b=1&s=612x612&w=0&k=20&c=C3QEihz-Rl0mUJrMGow6ZLUdRurLRUihz6q1eSHoPjM=">
 <h3>Jaipur</h3>
-<p>Pink City of Rajasthan</p>
+<p>pink city of Rajasthan</p>
 </div>
+</a>
 
+<a href="/place/varanasi" style="text-decoration:none;color:black;">
 <div class="card">
 <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/df26146d-a16d-4d75-8172-aa1d9c984001/d6omi5n-98f44af3-fc69-49c3-968d-065d355f565e.jpg/v1/fill/w_900,h_600,q_75,strp/varanasi___india_by_rezaphotography_d6omi5n-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZGYyNjE0NmQtYTE2ZC00ZDc1LTgxNzItYWExZDljOTg0MDAxXC9kNm9taTVuLTk4ZjQ0YWYzLWZjNjktNDljMy05NjhkLTA2NWQzNTVmNTY1ZS5qcGciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.C0csHsx1aB5YrFqjylvIfLO6qihzqjiCXccfchR9bMc">
 <h3>Varanasi</h3>
-<p>Spiritual Capital of India</p>
+<p>Spiritual capital of India</p>
 </div>
+</a>
 
+<a href="/place/goa" style="text-decoration:none;color:black;">
 <div class="card">
 <img src="https://wildlifezones.com/wp-content/uploads/2020/10/A-Beautiful-Beach-in-Goa.jpg">
 <h3>Goa</h3>
 <p>Famous Beaches & Nightlife</p>
 </div>
+</a>
 
+<a href="/place/kerala" style="text-decoration:none;color:black;">
 <div class="card">
 <img src="https://www.affordableluxurytravel.co.uk/blog/wp-content/uploads/2023/03/Kerala-Backwaters-2.jpg">
 <h3>Kerala</h3>
 <p>Beautiful Backwaters</p>
 </div>
+</a>
 
+<a href="/place/golden temple" style="text-decoration:none;color:black;">
 <div class="card">
 <img src="https://wallpapers.com/images/hd/golden-temple-and-green-pool-yeah6u7p3v71u682.jpg">
 <h3>Golden Temple</h3>
 <p>Amritsar, Punjab</p>
 </div>
+</a>
 
+<a href="/place/gateway of india" style="text-decoration:none;color:black;">
 <div class="card">
 <img src="https://cdn.guidetour.in/wp-content/uploads/2018/09/Architectural-Marvel-Gateway-of-India.jpg.webp">
-<h3>Mumbai</h3>
-<p>Gateway of India</p>
+<h3>Gateway of India</h3>
+<p>Mumbai</p>
 </div>
+</a>
 
+<a href="/place/qutub minar" style="text-decoration:none;color:black;">
 <div class="card">
 <img src="https://imgmedia.lbb.in/media/2019/09/5d6e3d3631019eb679a4639d_1567505718634.jpg">
 <h3>Qutub Minar</h3>
 <p>Delhi</p>
 </div>
+</a>
 
+<a href="/place/leh ladakh" style="text-decoration:none;color:black;">
 <div class="card">
 <img src="https://wanderon-images.gumlet.io/blogs/new/2023/12/leh-ladakh.jpg">
 <h3>Leh Ladakh</h3>
-<p>Adventure Paradise</p>
+<p>Adventurer Paradise</p>
 </div>
+</a>
 
+<a href="/place/mysore palace" style="text-decoration:none;color:black;">
 <div class="card">
 <img src="https://www.fabhotels.com/blog/wp-content/uploads/2019/05/Mysore-palace_600.jpg">
 <h3>Mysore Palace</h3>
 <p>Karnataka</p>
 </div>
+</a>
+
 
 </section>
 
@@ -290,6 +311,66 @@ Explore culture, history, spirituality and adventure all in one place.
 @app.route("/")
 def home():
     return render_template_string(html)
+
+@app.route("/place/<name>")
+def place(name):
+
+    places = {
+        "tajmahal": {
+            "title": "Taj Mahal",
+            "info": "The Taj Mahal is one of the Seven Wonders of the World. Located in Agra, it was built by Mughal Emperor Shah Jahan."
+        },
+
+        "jaipur": {
+            "title": "Jaipur",
+            "info": "Jaipur is known as the Pink City and is famous for Hawa Mahal, Amer Fort and rich Rajasthani culture."
+        },
+
+        "varanasi": {
+            "title": "Varanasi",
+            "info": "Varanasi is one of the world's oldest cities and a major spiritual center on the banks of the Ganges."
+        },
+
+        "goa": {
+            "title": "Goa",
+            "info": "Goa is famous for beaches, nightlife, Portuguese architecture and seafood."
+        },
+
+        "kerala": {
+            "title": "Kerala",
+            "info": "Kerala is known for its backwaters, tea plantations, hill stations and beautiful scenery."
+        },
+
+        "ladakh": {
+            "title": "Leh Ladakh",
+            "info": "Ladakh is famous for mountains, monasteries, Pangong Lake and adventure tourism."
+        }
+
+         "mumbai": {
+            "title": "Mumbai",
+            "info": "Mumbai is famous for skycrapers and as heart of bollywood."
+        }
+
+        "karnataka": {
+            "title": "Karnataka",
+            "info": "Karnataka is famous for Mysore silk, sandalwood and cuisine."
+        }
+
+         "delhi": {
+            "title": "Delhi",
+            "info": "Delhi is famous for its historical monuments, religious sites, diverse street food, lively markets."
+        }
+    }
+
+    if name in places:
+        return f"""
+        <h1>{places[name]['title']}</h1>
+        <p>{places[name]['info']}</p>
+        <br>
+        <a href='/'>⬅ Back to Home</a>
+        """
+
+    return "Place not found"
 
 
 @app.route("/contact", methods=["POST"])
