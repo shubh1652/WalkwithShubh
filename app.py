@@ -255,21 +255,54 @@ Explore culture, history, spirituality and adventure all in one place.
 <p>Founder</p>
 </div>
 
-</section>
 
-<section class="contact">
+def init_db():
+    conn = sqlite3.connect('contact.db')
+    cursor = conn.cursor()
 
-<h2>Contact Us</h2>
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS contacts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            email TEXT NOT NULL,
+            address TEXT NOT NULL,
+            message TEXT NOT NULL
+        )
+    ''')
 
-<br>
+    conn.commit()
+    conn.close()
 
-<input type="text" placeholder="Your Name"><br>
+init_db()
 
-<input type="email" placeholder="Your Email"><br>
+@app.route('/')
+def home():
+    return render_template('contact.html')
 
-<textarea rows="5" placeholder="Message"></textarea><br>
+@app.route('/submit', methods=['POST'])
+def submit():
+    name = request.form['name']
+    email = request.form['email']
+    address = request.form['address']
+    message = request.form['message']
 
-<button>Send Message</button>
+    conn = sqlite3.connect('contact.db')
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "INSERT INTO contacts (name, email, address, message) VALUES (?, ?, ?, ?)",
+        (name, email, address, message)
+    )
+
+    conn.commit()
+    conn.close()
+
+    return redirect('/success')
+
+@app.route('/success')
+def success():
+    return "<h2>Thank you! Your message has been submitted successfully.</h2>"
+
 
 </section>
 
