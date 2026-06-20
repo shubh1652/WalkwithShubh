@@ -1,15 +1,71 @@
+from flask import Flask, render_template_string
+
+app = Flask(__name__)
+
+html = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WalkwithShubh</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WalkwithShubh</title>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#f4f4f4;
+        }
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+        nav{
+            background:#1e3a8a;
+            color:white;
+            padding:15px 40px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        ul{
+            list-style:none;
+            display:flex;
+            gap:20px;
+        }
+
+        ul li a{
+            color:white;
+            text-decoration:none;
+        }
+
+        .hero{
+            text-align:center;
+            padding:80px 20px;
+            background:url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1200') center/cover;
+            color:white;
+        }
+
+        .hero h1{
+            font-size:50px;
+        }
+
+        .about{
+            padding:50px;
+            text-align:center;
+            background:white;
+        }
+
+        .about img{
+            width:220px;
+            border-radius:50%;
+            margin-top:20px;
+        }
+    </style>
 </head>
-
 <body>
 
 <nav>
@@ -17,138 +73,38 @@
 
     <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#destinations">Destinations</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">Destinations</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
     </ul>
-
-    <button>Plan a Trip</button>
 </nav>
 
 <section class="hero">
-
-    <div class="overlay">
-
-        <h4>EXPLORE INCREDIBLE INDIA</h4>
-
-        <h1>
-            Travel. Explore.<br>
-            Experience India.
-        </h1>
-
-        <p>
-            Discover India's most iconic destinations.
-        </p>
-
-        <div class="buttons">
-            <button>Explore Destinations</button>
-            <button class="secondary">Learn More</button>
-        </div>
-
-    </div>
-
+    <h1>Explore Incredible India</h1>
+    <p>Discover India's most beautiful tourist destinations.</p>
 </section>
 
-<section id="destinations">
+<section class="about">
+    <h2>About WalkwithShubh</h2>
 
-<h2>Explore India's Best Places</h2>
+    <p>
+        WalkwithShubh helps travelers discover India's most iconic destinations.
+        Explore culture, history, spirituality and adventure all in one place.
+    </p>
 
-<div class="cards">
+    <img src="/static/myphoto.jpg.jpg" alt="Shubham">
 
-<div class="card">
-<img src="/static/tajmahal.jpg">
-<h3>Taj Mahal</h3>
-<p>Agra, Uttar Pradesh</p>
-</div>
-
-<div class="card">
-<img src="/static/hawa_mahal.jpg">
-<h3>Hawa Mahal</h3>
-<p>Jaipur, Rajasthan</p>
-</div>
-
-<div class="card">
-<img src="/static/kashi.jpg">
-<h3>Kashi Vishwanath Temple</h3>
-<p>Varanasi</p>
-</div>
-
-<div class="card">
-<img src="/static/goa.jpg">
-<h3>Goa Beach</h3>
-<p>Goa</p>
-</div>
-
-<div class="card">
-<img src="/static/kerala.jpg">
-<h3>Kerala Backwaters</h3>
-<p>Kerala</p>
-</div>
-
-<div class="card">
-<img src="/static/golden_temple.jpg">
-<h3>Golden Temple</h3>
-<p>Amritsar</p>
-</div>
-
-<div class="card">
-<img src="/static/gateway.jpg">
-<h3>Gateway of India</h3>
-<p>Mumbai</p>
-</div>
-
-<div class="card">
-<img src="/static/india_gate.jpg">
-<h3>India Gate</h3>
-<p>Delhi</p>
-</div>
-
-<div class="card">
-<img src="/static/ladakh.jpg">
-<h3>Leh Ladakh</h3>
-<p>Ladakh</p>
-</div>
-
-<div class="card">
-<img src="/static/mysore.jpg">
-<h3>Mysore Palace</h3>
-<p>Karnataka</p>
-</div>
-
-</div>
-
+    <h3>Shubham Gupta</h3>
+    <p>Founder</p>
 </section>
-
-<section id="about">
-
-<div class="about-container">
-
-<img src="/static/myphoto.jpg" class="profile">
-
-<div>
-
-<h2>About WalkwithShubh</h2>
-
-<p>
-Hi, I'm Shubham Gupta, founder of WalkwithShubh.
-My goal is to help travelers explore India's most beautiful destinations.
-</p>
-
-<button>Know More About Me</button>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-<h3>WalkwithShubh</h3>
-
-<p>Made with ❤️ for travelers.</p>
-
-</footer>
 
 </body>
 </html>
+"""
+
+@app.route("/")
+def home():
+    return render_template_string(html)
+
+if __name__ == "__main__":
+    app.run(debug=True)
